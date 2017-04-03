@@ -9,6 +9,7 @@ import java.io.File;
 import java.net.URL;
 
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.equalTo;
 
 
 /**
@@ -54,18 +55,20 @@ public class ProductTest {
                 .post(PRODUCT).getStatusCode());
     }*/
 
-    //теги в xml регистрочувствительные
+
+   //теги в xml регистрочувствительные
     //на сервере паттерн на содержимое тегов
     //post  создание нового или изменение
     // при создании указывем id в xml code=201
     // при изменении указываеи id в пути code=200
-  /* @Test
+   @Test
     public void OneCanCreateProductWithPost() {
-        System.out.println(given().body(PRODUCT_BODY_POST)
+      given().body(PRODUCT_BODY_POST)
                 .when()
-                .post(PRODUCT).getStatusCode());
-    }*/
+                .post(PRODUCT)
+              .then().assertThat().statusCode(201);
 
+    }
 
 
     @DataProvider(name = "idProvider")
@@ -77,11 +80,17 @@ public class ProductTest {
 
     //если принимать параметр у метода и не использовать его то тест будет проигнорирован
     //изменять можно только по одному параметру ???
+    //id в xml optional
     @Test(dataProvider = "idProvider")
     public void OneCanUpdateProductWithPost(Integer id) {
-        System.out.println(given().body(PRODUCT_BODY_POST)
+        given().body(PRODUCT_BODY_POST)
                 .when()
-                .post(PRODUCT + id).getStatusCode());
+                .post(PRODUCT + id).then().assertThat().statusCode(200);
+//        System.out.println(when().get(PRODUCT + id).asString());
+//        System.out.println(when().get(PRODUCT + id));
+       
+
+
     }
 
     //удаление
