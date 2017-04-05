@@ -15,17 +15,17 @@ public class SetParametrizedIdTest extends BaseTest{
         given()
                 .pathParam("ID", "4")
                 .when()
-                .get(PRODUCT+"{ID}")
+                .get(PRODUCT)
                 .then()
                 .body(PRODUCT_NAME, containsString("Tea"));
     }
 
     @Test
     public void setParametrizedIdSecondWay(){
-        String ID = "4";
+        String id = "4";
         given()
         .when()
-                .get(PRODUCT+"{ID}", ID)
+                .get(PRODUCT, id)
         .then()
                 .body(PRODUCT_NAME, containsString("Tea"));
     }
