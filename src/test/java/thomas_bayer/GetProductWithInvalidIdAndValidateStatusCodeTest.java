@@ -17,11 +17,4 @@ public class GetProductWithInvalidIdAndValidateStatusCodeTest extends BaseTest{
                 .then().statusCode(STATUS_CODE_NOT_FOUND);
     }
 
-    @DataProvider(name = "idProvider")
-    public Object[][] provider(){
-        return new Object[][]{
-                {new String("999")}
-        };
-    }
-
 }

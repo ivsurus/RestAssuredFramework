@@ -1,6 +1,5 @@
 package thomas_bayer;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -19,10 +18,4 @@ public class GetProductByIdAndValidateTagsTest extends BaseTest {
                 body(containsString("PRODUCT"));
     }
 
-    @DataProvider(name = "idProvider")
-    public Object[][] provider(){
-        return new Object[][]{
-                {new String("4")}
-        };
-    }
 }

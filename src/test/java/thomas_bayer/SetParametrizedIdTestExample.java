@@ -20,9 +20,8 @@ public class SetParametrizedIdTestExample extends BaseTest{
                 .body(PRODUCT_NAME, containsString("Tea"));
     }
 
-    @Test
-    public void setParametrizedIdSecondWay(){
-        String id = "4";
+    @Test(dataProvider = "idProvider")
+    public void setParametrizedIdSecondWay(String id){
         given()
         .when()
                 .get(PRODUCT, id)

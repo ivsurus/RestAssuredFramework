@@ -2,6 +2,8 @@ package thomas_bayer;
 
 import io.restassured.RestAssured;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+
 import static io.restassured.RestAssured.baseURI;
 
 /**
@@ -30,5 +32,12 @@ public class BaseTest {
     @BeforeClass
     public void setUpRestAssured() {
         baseURI = BASE_URI;
+    }
+
+    @DataProvider(name = "idProvider")
+    public Object[][] provider(){
+        return new Object[][]{
+                {new String("7")}
+        };
     }
 }

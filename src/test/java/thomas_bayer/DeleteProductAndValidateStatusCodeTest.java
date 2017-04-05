@@ -1,11 +1,10 @@
 package thomas_bayer;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
 
-public class DelProductAndValidateStatusCodeTest extends BaseTest {
+public class DeleteProductAndValidateStatusCodeTest extends BaseTest {
 
     @Test(dataProvider = "idProvider", description = "id should be valid")
     public void delProductWithValidIdAndValidateStatusCode(String id) {
@@ -17,10 +16,4 @@ public class DelProductAndValidateStatusCodeTest extends BaseTest {
                 .statusCode(STATUS_CODE_NOT_FOUND);
     }
 
-    @DataProvider(name = "idProvider")
-    public Object[][] provider(){
-        return new Object[][]{
-                {new String("4")}
-        };
-    }
 }
