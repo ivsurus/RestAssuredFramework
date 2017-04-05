@@ -7,7 +7,7 @@ import static io.restassured.RestAssured.get;
 import static org.hamcrest.Matchers.equalTo;
 
 
-public class CheckProductParametersTest extends BaseTest {
+public class GetProductByIdAndValidateValuesTest extends BaseTest {
 
 
     @DataProvider(name = "checkProductIdProvider")
@@ -20,7 +20,7 @@ public class CheckProductParametersTest extends BaseTest {
     @Test(dataProvider = "checkProductIdProvider")
     public void checkProductID(int id)
     {
-        get(PRODUCT + id).
+        get(PRODUCT, id).
                 then().statusCode(STATUS_CODE_OK).
                 body(PRODUCT_ID, equalTo(String.valueOf(id)));
     }
@@ -36,7 +36,7 @@ public class CheckProductParametersTest extends BaseTest {
     @Test(dataProvider = "checkProductNameProvider")
     public void checkProductName(int id, String name)
     {
-        get(PRODUCT + id).
+        get(PRODUCT, id).
                 then().statusCode(STATUS_CODE_OK).
                 body(PRODUCT_NAME, equalTo(name));
     }
@@ -51,7 +51,7 @@ public class CheckProductParametersTest extends BaseTest {
     @Test(dataProvider = "checkProductPriceProvider")
     public void checkProductPrice(int id, String price)
     {
-        get(PRODUCT + id).
+        get(PRODUCT, id).
                 then().statusCode(STATUS_CODE_OK).
                 body(PRODUCT_PRICE, equalTo(price));
     }

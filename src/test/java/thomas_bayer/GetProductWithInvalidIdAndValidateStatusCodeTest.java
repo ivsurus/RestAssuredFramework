@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
  * Created by Ivan on 05.04.2017.
  */
 
-public class InvalidIdTest extends BaseTest{
+public class GetProductWithInvalidIdAndValidateStatusCodeTest extends BaseTest{
 
     @Test (dataProvider = "idProvider", description = "id should be invalid")
     public void getProductWithInvalidIdTest(String id) {

@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 /**
  * Created by Ivan_Surus on 4/4/2017.
  */
-public class SetParametrizedIdTest extends BaseTest{
+public class SetParametrizedIdTestExample extends BaseTest{
 
     @Test
     public void setParametrizedIdFirstWay(){
