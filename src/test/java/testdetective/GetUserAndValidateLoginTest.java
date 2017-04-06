@@ -38,7 +38,7 @@ public class GetUserAndValidateLoginTest extends BaseTestDetective {
     }
 
     @Test(dataProvider = "checkUserLoginProvider")
-    public void checkUserLoginAsPath(int id, String login)
+    public void checkUserLoginAsPathAndHashMap(int id, String login)
     {
         Response response =
         get(USER, id).
@@ -57,9 +57,9 @@ public class GetUserAndValidateLoginTest extends BaseTestDetective {
         System.out.println(jsonAsHashMap.get(USER_ID));
         System.out.println(jsonAsHashMap.get(USER_LOGIN));
         System.out.println(jsonAsHashMap.get(USER_WWW));
-
-
     }
+
+
 
 
 }
