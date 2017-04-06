@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resource xmlns:xlink="http://www.w3.org/1999/xlink">
-    <ID>4463</ID>
+<resource>
+ <PRODUCT xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ID>44636</ID>
     <PRICE>33</PRICE>
+    <NAME>my super name</NAME>
+</PRODUCT>
 </resource>
